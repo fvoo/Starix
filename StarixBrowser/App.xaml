@@ -1,0 +1,32 @@
+﻿<Application x:Class="StarixBrowser.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:StarixBrowser"
+             xmlns:c="clr-namespace:StarixBrowser.Views.Custom"
+             xmlns:m="clr-namespace:StarixBrowser.Models"
+             xmlns:mv="clr-namespace:StarixBrowser.ViewModels">
+    <Application.Resources>
+        <ResourceDictionary>
+
+
+            <!--ViewModelLocator-->
+            <mv:ViewModelLocator x:Key="Locator"/>
+
+            <!--Application Info-->
+            <m:AppInfo x:Key="AppInfo"/>
+
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--Language-->
+                <ResourceDictionary Source="Assets/Language/zh-CN.xaml"/>
+                <!--HandyControl-->
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                <!--Converters-->
+                <ResourceDictionary Source="Utils/Converters/Converters.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

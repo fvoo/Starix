@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:StarixBrowser.Utils.Converters">
+
+    <local:UrlDecoder x:Key="UrlDecoder"/>
+
+    <local:ObjectNotNull x:Key="NotNull"/>
+
+    <local:StringArrNotAnyEmpty x:Key="StringArrNotAnyEmpty"/>
+
+    <local:VisiableIfNotZero x:Key="VisiableIfNotZero"/>
+
+    <local:UrlGetFileName x:Key="UrlGetFileName"/>
+
+    <local:VisiableIfStrNotEmpty x:Key="VisiableIfStrNotEmpty"/>
+
+    <local:TwoThird x:Key="TwoThird"/>
+
+</ResourceDictionary>

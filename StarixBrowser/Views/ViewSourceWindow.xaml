@@ -1,0 +1,16 @@
+﻿<Window x:Class="StarixBrowser.Views.ViewSourceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:flash="clr-namespace:StarixBrowser.FlashBrowser;assembly=StarixBrowser.FlashBrowser"
+        xmlns:local="clr-namespace:StarixBrowser.Views"
+        mc:Ignorable="d"
+        
+        x:Name="window"
+        Title="{Binding ElementName=browser, Path=Title, TargetNullValue=view-source}"
+        Height="Auto"
+        Width="Auto">
+
+    <flash:ChromiumFlashBrowser x:Name="browser"/>
+</Window>

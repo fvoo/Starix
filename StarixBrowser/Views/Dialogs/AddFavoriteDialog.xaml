@@ -1,0 +1,69 @@
+﻿<Window x:Class="StarixBrowser.Views.Dialogs.AddFavoriteDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StarixBrowser.Views.Dialogs"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:behaviors="clr-namespace:StarixBrowser.Utils.Behaviors"
+        mc:Ignorable="d"
+        
+        x:Name="window"
+        Width="350"
+        Height="220"
+        Topmost="True"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="{DynamicResource title_addFavorite}"
+        FocusManager.FocusedElement="{Binding ElementName=NameTextBox}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <StackPanel Margin="15,0"
+                        VerticalAlignment="Center">
+                <hc:TextBox x:Name="NameTextBox"
+                            hc:TitleElement.Title="{DynamicResource favorites_name}"
+                            Text="{Binding ElementName=window, Path=ItemName, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Behaviors>
+                        <behaviors:TextBoxSelectAllOnFocus/>
+                    </i:Interaction.Behaviors>
+                </hc:TextBox>
+                <hc:TextBox x:Name="UrlTextBox"
+                            hc:TitleElement.Title="{DynamicResource favorites_url}"
+                            Text="{Binding ElementName=window, Path=ItemUrl, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Behaviors>
+                        <behaviors:TextBoxSelectAllOnFocus/>
+                    </i:Interaction.Behaviors>
+                </hc:TextBox>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <StackPanel Margin="15"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right">
+                <Button MinWidth="70"
+                        Content="{DynamicResource button_cancel}"
+                        Click="OnCancelButtonClick"/>
+                <Button MinWidth="70"
+                        Margin="10,0,0,0"
+                        Content="{DynamicResource button_ok}"
+                        Style="{StaticResource ButtonPrimary}"
+                        Click="OnConfirmButtonClick">
+                    <Button.IsEnabled>
+                        <MultiBinding Converter="{StaticResource StringArrNotAnyEmpty}">
+                            <Binding ElementName="window" Path="ItemName"/>
+                            <Binding ElementName="window" Path="ItemUrl"/>
+                        </MultiBinding>
+                    </Button.IsEnabled>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
